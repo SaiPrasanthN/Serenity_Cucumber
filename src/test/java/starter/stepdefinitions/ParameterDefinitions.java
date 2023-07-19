@@ -1,5 +1,6 @@
 package starter.stepdefinitions;
 
+import com.learning.base.BaseClass;
 import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;
 import net.serenitybdd.screenplay.Actor;
@@ -8,13 +9,11 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 
 public class ParameterDefinitions {
 
-    @ParameterType(".*")
-    public Actor actor(String actorName) {
-        return OnStage.theActorCalled(actorName);
-    }
 
-    @Before
-    public void setTheStage() {
-        OnStage.setTheStage(new OnlineCast());
-    }
+@Before
+public void setTheStage() {
+    OnStage.setTheStage(new OnlineCast());
+
+
+}
 }
