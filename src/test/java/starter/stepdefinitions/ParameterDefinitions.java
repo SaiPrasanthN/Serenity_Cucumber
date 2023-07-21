@@ -14,6 +14,5 @@ public class ParameterDefinitions {
 public void setTheStage() {
     OnStage.setTheStage(new OnlineCast());
 
-
 }
 }
