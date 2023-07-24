@@ -1,5 +1,5 @@
 @Login
-Feature: Search by keyword
+Feature: User Login
 
   Background:
     Given user is on login Page
@@ -12,5 +12,9 @@ Feature: Search by keyword
 
     Scenario: Logout Scenario
       Given  user is on HomePage
-      When user clicks on logout Button
+     When user clicks on logout Button
       Then user should land on Login Page
+
+      Scenario: Login with bulk users
+        Given user is on login Page
+        When user gets data from "Data.xlsx" file for login
