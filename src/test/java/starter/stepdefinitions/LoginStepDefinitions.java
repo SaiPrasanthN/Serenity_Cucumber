@@ -7,6 +7,8 @@ import io.cucumber.java.af.En;
 import io.cucumber.java.en.*;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
+import java.io.IOException;
+
 public class LoginStepDefinitions extends BaseClass {
 
     LoginPage loginPage=new LoginPage();
@@ -36,6 +38,11 @@ productsPage.logout();
     @Then("user should land on Login Page")
     public void user_should_land_on_login_page() {
        loginPage.verifyCurrentTitle();
+    }
+
+    @When("user gets data from {string} file for login")
+    public void user_gets_data_from_file_for_login(String fileName) throws IOException {
+loginPage.loginWithBulkUsers(fileName);
     }
 
 }
