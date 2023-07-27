@@ -3,15 +3,16 @@ package com.learning.utilities;
 import com.learning.base.BaseClass;
 import net.serenitybdd.screenplay.targets.Target;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -68,5 +69,31 @@ public class Utilities extends BaseClass {
 
 
         return values;
+    }
+
+    public void writeToTextFile(String text) throws IOException {
+        String path=System.getProperty("user.dir")+File.separator+"src"+File.separator+
+                "test"+File.separator+"resources"+File.separator+ "TestData.txt";
+
+        FileWriter fileWriter=new FileWriter(path,true);
+        fileWriter.write(text);
+        fileWriter.close();
+    }
+
+    public Map<String,String> readFromTextFile() throws IOException {
+        String path=System.getProperty("user.dir")+File.separator+"src"+File.separator+
+                "test"+File.separator+"resources"+File.separator+ "TestData.txt";
+Map<String,String> data=new HashMap<>();
+        String totalText=new String(Files.readAllBytes(Paths.get(path)));
+String [] array=totalText.split("\n");
+for(String string :array){
+
+    String key= StringUtils.substringBefore(string,"=");
+    String value= StringUtils.substringAfter(string,"=");
+    data.put(key,value);
+}
+return data;
+
+
     }
 }
