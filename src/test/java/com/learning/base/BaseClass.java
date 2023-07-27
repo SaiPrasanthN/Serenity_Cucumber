@@ -14,7 +14,7 @@ import org.openqa.selenium.WebDriver;
 public class BaseClass {
 
     Actor james = OnStage.theActorCalled("James");
-public WebDriver driver= BrowseTheWeb.as(james).getDriver();
+    public WebDriver driver= BrowseTheWeb.as(james).getDriver();
 
     public static Performable openBrowser() {
         return Task.where("{0} opens the Wikipedia home page",
@@ -25,7 +25,7 @@ public WebDriver driver= BrowseTheWeb.as(james).getDriver();
 
     public Actor getActor(){
 
-   return    OnStage.theActorInTheSpotlight();
+        return    OnStage.theActorInTheSpotlight();
     }
 
 }

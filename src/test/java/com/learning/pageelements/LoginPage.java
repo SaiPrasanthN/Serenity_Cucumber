@@ -38,6 +38,7 @@ public class LoginPage extends BaseClass {
 
     public void verifyCurrentTitle(){
         loginButton.waitingForNoMoreThan(Duration.ofSeconds(8));
+
         Ensure.that(loginButton).getValue().equals("Login");
     }
 
@@ -52,6 +53,7 @@ public void loginWithBulkUsers(String fileName) throws IOException {
     getActor().attemptsTo(Enter.theValue(key).into(username)
             .then(Enter.theValue(password).into(this.password)).then(Click.on(loginButton)));
         Ensure.that(productsPage.pageTitle).getValue().equals("Swag Labs");
+
     productsPage.logout();
     }
     }
