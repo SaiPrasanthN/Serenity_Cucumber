@@ -4,6 +4,7 @@ import com.learning.base.BaseClass;
 import net.serenitybdd.screenplay.targets.Target;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -96,4 +98,29 @@ return data;
 
 
     }
+
+    public String generateRandomLetters(boolean isAlphabet, boolean isNumber){
+        boolean alphabet=false;
+        boolean number=false;
+
+        if(isAlphabet){
+            alphabet=true;
+        }else if(isNumber){
+            number=true;
+        }
+String random = RandomStringUtils.random(6,alphabet,number);
+        return  random;
+
+    }
+
+public String getSubStringAfter(String string,String character){
+
+        return StringUtils.substringAfter(string,character);
+
+}
+
+public BigDecimal getBigDecimalFromString(String string){
+        return  new BigDecimal(Double.parseDouble(string));
+}
+
 }
